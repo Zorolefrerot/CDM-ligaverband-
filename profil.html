@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Profil - CDM Ligaverband</title>
+  <link rel="icon" type="image/png" href="https://i.ibb.co/KcYMxCrq/image.jpg">
+  <style>
+    body {
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      margin:0;
+      padding:20px;
+      background:#f4f6fb;
+    }
+    .card {
+      background:white;
+      border-radius:12px;
+      padding:20px;
+      max-width:600px;
+      margin:0 auto;
+      box-shadow:0 6px 20px rgba(0,0,0,0.1);
+    }
+    h1 { color:#133f9a; }
+    .info { margin-bottom:10px; }
+    .highlight { font-weight:bold; }
+    .alert {
+      margin-top:20px;
+      padding:15px;
+      border-radius:8px;
+      background:#fff3cd;
+      color:#856404;
+      font-weight:bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Votre Profil</h1>
+    <div id="profil"></div>
+    <div class="alert">
+      📌 Envoyez vos 14 chiffres à <span class="highlight">Merdi Madimba</span> seulement.
+    </div>
+  </div>
+
+  <script>
+    const data = JSON.parse(localStorage.getItem("candidat"));
+    const profilDiv = document.getElementById("profil");
+
+    if (!data) {
+      profilDiv.innerHTML = "<p style='color:red;'>⚠️ Aucune donnée trouvée. Veuillez vous reconnecter.</p>";
+    } else {
+      profilDiv.innerHTML = `
+        <div class="info"><span class="highlight">Nom:</span> ${data.nom}</div>
+        <div class="info"><span class="highlight">Post-nom:</span> ${data.postnom}</div>
+        <div class="info"><span class="highlight">Prénom:</span> ${data.prenom}</div>
+        <div class="info"><span class="highlight">Facebook:</span> <a href="${data.fblink}" target="_blank">${data.fbname}</a></div>
+        <div class="info"><span class="highlight">Email:</span> ${data.email}</div>
+        <div class="info"><span class="highlight">Pays:</span> ${data.pays}</div>
+        <div class="info"><span class="highlight">Ville:</span> ${data.ville}</div>
+        <div class="info"><span class="highlight">Naissance:</span> ${data.naissance}</div>
+        <div class="info"><span class="highlight">Verse préféré:</span> ${data.verse}</div>
+        <div class="info"><span class="highlight">Antagoniste préféré:</span> ${data.antagoniste}</div>
+        <div class="info"><span class="highlight">Protagoniste préféré:</span> ${data.protagoniste}</div>
+        <div class="info"><span class="highlight">Code candidat:</span> ${data.code}</div>
+      `;
+    }
+  </script>
+</body>
+</html>

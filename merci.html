@@ -70,11 +70,16 @@
   </div>
 
   <script>
-    // Récupérer les paramètres de l'URL
+    // Essayer de récupérer les infos depuis l'URL
     const params = new URLSearchParams(window.location.search);
-    const nom = params.get("nom") || "Candidat";
-    const code = params.get("code") || "------";
+    let nom = params.get("nom");
+    let code = params.get("code");
 
+    // Si pas trouvé dans l'URL, on va chercher dans localStorage
+    if (!nom) nom = localStorage.getItem("nom") || "Candidat";
+    if (!code) code = localStorage.getItem("code") || "------";
+
+    // Affichage
     document.getElementById("welcome").textContent = "Bienvenue " + nom + " 👋";
     document.getElementById("code").textContent = code;
   </script>

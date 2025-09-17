@@ -260,7 +260,7 @@
     console.log("Données formulaire:", data);
 
     const { error } = await supabase
-      .from("candidats")
+      .from("candido")
       .insert([data]);
 
     if (error) {

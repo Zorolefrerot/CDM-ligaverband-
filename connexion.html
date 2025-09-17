@@ -51,13 +51,14 @@
     button:hover { opacity:0.9; }
     .message { margin-top:15px; font-size:15px; font-weight:bold; }
     .error { color:red; }
+    .success { color:green; }
   </style>
   <!-- Supabase SDK -->
   <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
   <script>
     const SUPABASE_URL = "https://ohuhgrjbciksfhjgewbo.supabase.co"; 
     const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9odWhncmpiY2lrc2Zoamdld2JvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgwODI2NjAsImV4cCI6MjA3MzY1ODY2MH0.Sg08ABEQI2V7xDtJQh0WqbwAf1xVOmcjjmZSTHrHtgY";
-    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
   </script>
 </head>
 <body>
@@ -87,18 +88,26 @@
 
       // Vérifier dans Supabase
       const { data, error } = await supabase
-        .from("candidats")
+        .from("candido") // 🔥 mets bien le nom exact de ta table
         .select("*")
         .eq("code", code)
         .single();
 
       if (error || !data) {
+        console.error(error);
         message.textContent = "❌ Code invalide. Vérifiez et réessayez.";
         message.className = "message error";
       } else {
-        // Stocker les infos dans localStorage pour les passer à profil.html
+        message.textContent = `✅ Bienvenue ${data.prenom} ${data.nom}`;
+        message.className = "message success";
+
+        // Sauvegarde dans localStorage
         localStorage.setItem("candido", JSON.stringify(data));
-        window.location.href = "profil.html";
+
+        // Redirection vers la page profil
+        setTimeout(() => {
+          window.location.href = "profil.html";
+        }, 1200);
       }
     });
   </script>

@@ -257,6 +257,11 @@
     }
 
     const data = Object.fromEntries(new FormData(form).entries());
+
+    // Générer un code à 14 chiffres
+    const code = Math.floor(10000000000000 + Math.random() * 90000000000000).toString();
+    data.code = code;
+
     console.log("Données formulaire:", data);
 
     const { error } = await supabase
@@ -267,9 +272,15 @@
       console.error("Erreur Supabase:", error);
       alert(error.message || "Une erreur est survenue lors de l'inscription.");
     } else {
+      // Stocker nom + code dans localStorage pour merci.html
+      const nomComplet = `${data.prenom} ${data.nom}`;  
+      localStorage.setItem("nom", nomComplet);
+      localStorage.setItem("code", code);
+
+      // Redirection
       window.location.href = "merci.html";
     }
   });
-</script>
+	  </script>
 </body>
 </html>

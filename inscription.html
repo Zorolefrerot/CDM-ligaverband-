@@ -3,16 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  	 <meta property="og:title" content="♨️ Crée et heberge ton propre bot messenger | By Merdi Madimba">
-<meta property="og:description" content=" inscription CDM ligaverband ">
-<meta property="og:image" content="https://i.ibb.co/KcYMxCrq/image.jpg">
-<meta property="og:url" content="https://isekai-auto-bot-idrem.onrender.com">
-<meta property="og:type" content="website">
-		 <meta name="twitter:card" content="summary_large_image">
-		 
-			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <meta property="og:title" content="♨️ Crée et héberge ton propre bot messenger | By Merdi Madimba">
+  <meta property="og:description" content=" inscription CDM ligaverband ">
+  <meta property="og:image" content="https://i.ibb.co/KcYMxCrq/image.jpg">
+  <meta property="og:url" content="https://isekai-auto-bot-idrem.onrender.com">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+
   <title>Inscription - CDM Ligaverband</title>
   <link rel="icon" type="image/png" href="https://i.ibb.co/KcYMxCrq/image.jpg">
   <style>
@@ -39,16 +40,27 @@
       display:flex; align-items:center; gap:14px;
       margin-bottom: 14px;
     }
-    header.site-header .logo-circle{
+    .logo-circle{
       width:56px; height:56px; border-radius:50%;
       background: linear-gradient(180deg, var(--card-blue), #1d4fc5);
       display:flex; align-items:center; justify-content:center;
-      box-shadow: 0 6px 12px rgba(43,102,214,0.18);
       color: white; font-weight:700; font-size:20px;
     }
-    header.site-header .title{ display:flex; flex-direction:column; }
-    header.site-header h1{ margin:0; font-size:18px; color:var(--primary-blue); }
-    header.site-header p{ margin:2px 0 0; color:var(--muted); font-size:13px; }
+    .title{ display:flex; flex-direction:column; }
+    .title h1{ margin:0; font-size:18px; color:var(--primary-blue); }
+    .title p{ margin:2px 0 0; color:var(--muted); font-size:13px; }
+
+    .header-actions { margin-left: auto; display:flex; gap:8px; align-items:center; }
+    .connexion-btn {
+      padding:8px 12px;
+      border-radius:8px;
+      border:none;
+      background: linear-gradient(180deg, #2b66d6, #133f9a);
+      color:white;
+      font-weight:700;
+      cursor:pointer;
+    }
+
     .form-card{ background: white; border-radius: var(--card-radius);
       box-shadow: 0 8px 26px rgba(12,20,40,0.06); overflow: hidden; }
     .form-top{ background: linear-gradient(180deg, #ffffff 0%, #ffffff 0%);
@@ -90,197 +102,225 @@
       border-radius:10px; cursor:pointer;
       box-shadow: 0 8px 18px rgba(32,128,56,0.15);
     }
-    button[type="submit"]:active { transform: translateY(1px); }
+    .already{
+      text-align:center; padding:20px; background:white; border-radius:12px;
+      box-shadow:0 8px 26px rgba(0,0,0,0.1); margin-top:20px;
+    }
+    .already h2{ margin:0 0 8px; color:#c0392b; }
+    .already p{ margin:6px 0 12px; font-weight:700; }
+
     @media (max-width:520px){
       .wrap { padding:12px; }
       .info-title { font-size:18px; }
       .info-icon { width:56px; height:56px; font-size:24px; margin-top:-28px; }
+      .header-actions { display:none; }
     }
   </style>
 
   <!-- Supabase SDK -->
   <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
   <script>
-    const SUPABASE_URL = "https://ohuhgrjbciksfhjgewbo.supabase.co"; 
+    const SUPABASE_URL = "https://ohuhgrjbciksfhjgewbo.supabase.co";
     const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9odWhncmpiY2lrc2Zoamdld2JvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgwODI2NjAsImV4cCI6MjA3MzY1ODY2MH0.Sg08ABEQI2V7xDtJQh0WqbwAf1xVOmcjjmZSTHrHtgY";
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
   </script>
 </head>
 <body>
-  <!-- … ton body reste identique … -->
-    <div class="wrap">
+  <div class="wrap">
     <header class="site-header" aria-hidden="false">
       <div class="logo-circle">CDM</div>
       <div class="title">
         <h1>CDM de la Ligaverband</h1>
         <p>Portail d'inscription — Coupe du Monde Manga Quizz</p>
       </div>
+
+      <div class="header-actions">
+        <button class="connexion-btn" onclick="window.location.href='connexion.html'">🔑 Connexion</button>
+      </div>
     </header>
 
-    <section class="form-card" aria-labelledby="form-title">
-      <div class="form-top">
-        <div class="info-box" role="region" aria-label="Informations Personnelles">
-          <div class="info-icon" aria-hidden="true">🎓</div>
-          <div class="info-title" id="form-title">INFORMATIONS PERSONNELLES</div>
-          <p class="info-sub">Identité, état civil et informations de naissance</p>
-        </div>
-      </div>
-
-      <div class="form-body">
-        <form id="inscription-form" novalidate>
-          <div class="row">
-            <label for="nom">Nom du candidat *</label>
-            <input id="nom" name="nom" type="text" required autocomplete="name" />
-          </div>
-          <div class="row">
-            <label for="postnom">Post-nom du candidat *</label>
-            <input id="postnom" name="postnom" type="text" required />
-          </div>
-          <div class="row">
-            <label for="prenom">Prénom du candidat *</label>
-            <input id="prenom" name="prenom" type="text" required />
-          </div>
-          <div class="row">
-            <label for="fbname">Nom sur Facebook *</label>
-            <input id="fbname" name="fbname" type="text" required />
-          </div>
-          <div class="row">
-            <label for="fblink">Lien du profil Facebook *</label>
-            <input id="fblink" name="fblink" type="url" placeholder="https://facebook.com/nom.profil" required />
-            <div class="small">Entrez le lien complet du profil (commençant par https://)</div>
-          </div>
-          <div class="row">
-            <label for="email">Compte Gmail *</label>
-            <input id="email" name="email" type="email" placeholder="exemple@gmail.com" required />
-          </div>
-          <div class="row">
-            <label for="pays">Pays *</label>
-            <select id="pays" name="pays" required>
-              <option value="">-- Sélectionnez votre pays --</option>
-              <option value="RDC">RDC</option>
-              <option value="Benin">Bénin</option>
-              <option value="CIV">Côte d'Ivoire</option>
-              <option value="Burkina">Burkina Faso</option>
-              <option value="Cameroun">Cameroun</option>
-              <option value="Togo">Togo</option>
-              <option value="RCA">RCA</option>
-              <option value="Senegal">Sénégal</option>
-              <option value="Gabon">Gabon</option>
-              <option value="Guinee">Guinée</option>
-            </select>
-          </div>
-          <div class="row">
-            <label for="ville">Ville *</label>
-            <select id="ville" name="ville" required disabled>
-              <option value="">-- Sélectionnez d'abord un pays --</option>
-            </select>
-          </div>
-          <div class="row">
-            <label for="naissance">Date de naissance *</label>
-            <input id="naissance" name="naissance" type="date" required />
-          </div>
-          <div class="row">
-            <label for="verse">Verse préféré *</label>
-            <input id="verse" name="verse" type="text" placeholder="Ex: One Piece, Naruto..." required />
-          </div>
-          <div class="row">
-            <label for="antagoniste">Antagoniste préféré *</label>
-            <input id="antagoniste" name="antagoniste" type="text" required />
-          </div>
-          <div class="row">
-            <label for="protagoniste">Protagoniste préféré *</label>
-            <input id="protagoniste" name="protagoniste" type="text" required />
-          </div>
-          <div class="actions">
-            <button type="submit">S'inscrire</button>
-          </div>
-        </form>
-      </div>
-    </section>
+    <div id="container"></div>
   </div>
 
 <script>
-  // données villes par pays
-  const villesParPays = {
-    "RDC": ["Kinshasa", "Lubumbashi", "Matadi", "Autres"],
-    "Benin": ["Cotonou", "Porto-Novo", "Parakou", "Autres"],
-    "CIV": ["Abidjan", "Bouaké", "Yamoussoukro", "Autres"],
-    "Burkina": ["Ouagadougou", "Bobo-Dioulasso", "Koudougou", "Autres"],
-    "Cameroun": ["Douala", "Yaoundé", "Garoua", "Autres"],
-    "Togo": ["Lomé", "Sokodé", "Kara", "Autres"],
-    "RCA": ["Bangui", "Bimbo", "Berbérati", "Autres"],
-    "Senegal": ["Dakar", "Thiès", "Saint-Louis", "Autres"],
-    "Gabon": ["Libreville", "Port-Gentil", "Franceville", "Autres"],
-    "Guinee": ["Conakry", "Nzérékoré", "Kankan", "Autres"]
-  };
+  const container = document.getElementById("container");
 
-  const paysSelect = document.getElementById("pays");
-  const villeSelect = document.getElementById("ville");
-  const form = document.getElementById("inscription-form");
-
-  function resetVillePlaceholder() {
-    villeSelect.innerHTML = "";
-    const placeholder = document.createElement("option");
-    placeholder.value = "";
-    placeholder.textContent = "-- Sélectionnez une ville --";
-    villeSelect.appendChild(placeholder);
-    villeSelect.value = "";
-    villeSelect.disabled = true;
+  // Vérification si un code existe déjà
+  let existingCode = localStorage.getItem("code") || localStorage.getItem("candido_code");
+  if (!existingCode) {
+    const candidoObj = JSON.parse(localStorage.getItem("candido") || 'null');
+    if (candidoObj && candidoObj.code) existingCode = candidoObj.code;
   }
-  resetVillePlaceholder();
 
-  paysSelect.addEventListener("change", () => {
-    const pays = paysSelect.value;
+  if (existingCode) {
+    // Déjà inscrit sur l'appareil
+    container.innerHTML = `
+      <div class="already">
+        <h2>⚠️ Tu as déjà un compte sur cet appareil</h2>
+        <p>Ton code enregistré est : <strong>${existingCode}</strong></p>
+        <button class="connexion-btn" onclick="window.location.href='connexion.html'">🔑 Se connecter</button>
+      </div>
+    `;
+  } else {
+    // Afficher le formulaire avec bouton connexion
+    container.innerHTML = `
+      <section class="form-card" aria-labelledby="form-title">
+        <div class="form-top">
+          <div class="info-box">
+            <div class="info-icon">🎓</div>
+            <div class="info-title" id="form-title">INFORMATIONS PERSONNELLES</div>
+            <p class="info-sub">Identité, état civil et informations de naissance</p>
+          </div>
+        </div>
+
+        <div class="form-body">
+          <form id="inscription-form" novalidate>
+            <div class="row">
+              <label for="nom">Nom du candidat *</label>
+              <input id="nom" name="nom" type="text" required autocomplete="name" />
+            </div>
+            <div class="row">
+              <label for="postnom">Post-nom du candidat *</label>
+              <input id="postnom" name="postnom" type="text" required />
+            </div>
+            <div class="row">
+              <label for="prenom">Prénom du candidat *</label>
+              <input id="prenom" name="prenom" type="text" required />
+            </div>
+            <div class="row">
+              <label for="fbname">Nom sur Facebook *</label>
+              <input id="fbname" name="fbname" type="text" required />
+            </div>
+            <div class="row">
+              <label for="fblink">Lien du profil Facebook *</label>
+              <input id="fblink" name="fblink" type="url" placeholder="https://facebook.com/nom.profil" required />
+            </div>
+            <div class="row">
+              <label for="email">Compte Gmail *</label>
+              <input id="email" name="email" type="email" placeholder="exemple@gmail.com" required />
+            </div>
+            <div class="row">
+              <label for="pays">Pays *</label>
+              <select id="pays" name="pays" required>
+                <option value="">-- Sélectionnez votre pays --</option>
+                <option value="RDC">RDC</option>
+                <option value="Benin">Bénin</option>
+                <option value="CIV">Côte d'Ivoire</option>
+                <option value="Burkina">Burkina Faso</option>
+                <option value="Cameroun">Cameroun</option>
+                <option value="Togo">Togo</option>
+                <option value="RCA">RCA</option>
+                <option value="Senegal">Sénégal</option>
+                <option value="Gabon">Gabon</option>
+                <option value="Guinee">Guinée</option>
+              </select>
+            </div>
+            <div class="row">
+              <label for="ville">Ville *</label>
+              <select id="ville" name="ville" required disabled>
+                <option value="">-- Sélectionnez d'abord un pays --</option>
+              </select>
+            </div>
+            <div class="row">
+              <label for="naissance">Date de naissance *</label>
+              <input id="naissance" name="naissance" type="date" required />
+            </div>
+            <div class="row">
+              <label for="verse">Verse préféré *</label>
+              <input id="verse" name="verse" type="text" required />
+            </div>
+            <div class="row">
+              <label for="antagoniste">Antagoniste préféré *</label>
+              <input id="antagoniste" name="antagoniste" type="text" required />
+            </div>
+            <div class="row">
+              <label for="protagoniste">Protagoniste préféré *</label>
+              <input id="protagoniste" name="protagoniste" type="text" required />
+            </div>
+            <div class="actions">
+              <button type="submit">S'inscrire</button>
+            </div>
+          </form>
+          <div style="text-align:center; margin-top:15px;">
+            <button class="connexion-btn" onclick="window.location.href='connexion.html'">🔑 Déjà inscrit ? Se connecter</button>
+          </div>
+        </div>
+      </section>
+    `;
+
+    // --- Gestion villes ---
+    const villesParPays = {
+      "RDC": ["Kinshasa", "Lubumbashi", "Matadi", "Goma", "Kisangani", "Autres"],
+      "Benin": ["Cotonou", "Porto-Novo", "Parakou", "Djougou", "Natitingou", "Autres"],
+      "CIV": ["Abidjan", "Bouaké", "Yamoussoukro", "San-Pédro", "Daloa", "Autres"],
+      "Burkina": ["Ouagadougou", "Bobo-Dioulasso", "Koudougou", "Banfora", "Ouahigouya", "Autres"],
+      "Cameroun": ["Douala", "Yaoundé", "Garoua", "Bafoussam", "Maroua", "Autres"],
+      "Togo": ["Lomé", "Sokodé", "Kara", "Aného", "Atakpamé", "Autres"],
+      "RCA": ["Bangui", "Bimbo", "Berbérati", "Carnot", "Boali", "Autres"],
+      "Senegal": ["Dakar", "Thiès", "Saint-Louis", "Ziguinchor", "Kaolack", "Autres"],
+      "Gabon": ["Libreville", "Port-Gentil", "Franceville", "Oyem", "Moanda", "Autres"],
+      "Guinee": ["Conakry", "Nzérékoré", "Kankan", "Labé", "Kindia", "Autres"]
+    };
+
+    const paysSelect = document.getElementById("pays");
+    const villeSelect = document.getElementById("ville");
+    const form = document.getElementById("inscription-form");
+
+    function resetVillePlaceholder() {
+      villeSelect.innerHTML = "";
+      const placeholder = document.createElement("option");
+      placeholder.value = "";
+      placeholder.textContent = "-- Sélectionnez une ville --";
+      villeSelect.appendChild(placeholder);
+      villeSelect.disabled = true;
+    }
     resetVillePlaceholder();
-    if (pays && villesParPays[pays]) {
-      villesParPays[pays].forEach((ville) => {
-        const option = document.createElement("option");
-        option.value = ville;
-        option.textContent = ville;
-        villeSelect.appendChild(option);
-      });
-      villeSelect.disabled = false;
-    }
-  });
 
-  // soumission
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const inputs = form.querySelectorAll("input[required], select[required]");
-    for (let input of inputs) {
-      if (!input.value.trim()) {
-        alert("Veuillez remplir le champ : " + (input.labels[0]?.innerText || input.name));
-        input.focus();
-        return;
+    paysSelect.addEventListener("change", () => {
+      const pays = paysSelect.value;
+      resetVillePlaceholder();
+      if (pays && villesParPays[pays]) {
+        villesParPays[pays].forEach((ville) => {
+          const option = document.createElement("option");
+          option.value = ville;
+          option.textContent = ville;
+          villeSelect.appendChild(option);
+        });
+        villeSelect.disabled = false;
       }
-    }
+    });
 
-    const data = Object.fromEntries(new FormData(form).entries());
+    // --- Soumission ---
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-    // Générer un code à 14 chiffres
-    const code = Math.floor(10000000000000 + Math.random() * 90000000000000).toString();
-    data.code = code;
+      const inputs = form.querySelectorAll("input[required], select[required]");
+      for (let input of inputs) {
+        if (!input.value.trim()) {
+          alert("Veuillez remplir le champ : " + (input.labels[0]?.innerText || input.name));
+          input.focus();
+          return;
+        }
+      }
 
-    console.log("Données formulaire:", data);
+      const data = Object.fromEntries(new FormData(form).entries());
+      const code = Math.floor(10000000000000 + Math.random() * 90000000000000).toString();
+      data.code = code;
 
-    const { error } = await supabase
-      .from("candido")
-      .insert([data]);
+      const { error } = await supabase.from("candido").insert([data]);
 
-    if (error) {
-      console.error("Erreur Supabase:", error);
-      alert(error.message || "Une erreur est survenue lors de l'inscription.");
-    } else {
-      // Stocker nom + code dans localStorage pour merci.html
-      const nomComplet = `${data.prenom} ${data.nom}`;  
-      localStorage.setItem("nom", nomComplet);
-      localStorage.setItem("code", code);
-
-      // Redirection
-      window.location.href = "merci.html";
-    }
-  });
-	  </script>
+      if (error) {
+        console.error("Erreur Supabase:", error);
+        alert(error.message || "Une erreur est survenue lors de l'inscription.");
+      } else {
+        localStorage.setItem("nom", `${data.prenom} ${data.nom}`);
+        localStorage.setItem("code", code);
+        localStorage.setItem("candido_code", code);
+        localStorage.setItem("candido", JSON.stringify(data));
+        window.location.href = "merci.html";
+      }
+    });
+  }
+</script>
 </body>
 </html>

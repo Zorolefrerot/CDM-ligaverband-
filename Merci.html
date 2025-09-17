@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Merci - CDM Ligaverband</title>
+  <link rel="icon" type="image/png" href="https://i.ibb.co/KcYMxCrq/image.jpg">
+  <style>
+    body {
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      margin:0;
+      padding:0;
+      background:#f4f6fb;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+    .card {
+      background:white;
+      border-radius:12px;
+      padding:30px;
+      max-width:480px;
+      text-align:center;
+      box-shadow:0 6px 20px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color:#133f9a;
+    }
+    .highlight {
+      font-size:20px;
+      font-weight:bold;
+      color:#2b66d6;
+      margin:15px 0;
+    }
+    .code-box {
+      background:#f1f5ff;
+      border:1px dashed #2b66d6;
+      padding:12px;
+      font-size:18px;
+      font-weight:bold;
+      color:#133f9a;
+      border-radius:8px;
+      margin:10px 0;
+    }
+    button {
+      margin-top:20px;
+      padding:12px 20px;
+      border:none;
+      border-radius:10px;
+      background:linear-gradient(180deg, #28a745, #1f8b3a);
+      color:white;
+      font-size:16px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+    button:hover {
+      opacity:0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1 id="welcome"></h1>
+    <p class="highlight">Merci pour ton inscription 🎉</p>
+    <p>Ton code de candidat unique est :</p>
+    <div class="code-box" id="code"></div>
+    <p>⚠️ Conserve bien ce code ! Il te servira pour te connecter.</p>
+    <button onclick="window.location.href='connexion.html'">Connexion</button>
+  </div>
+
+  <script>
+    // Récupérer les paramètres de l'URL
+    const params = new URLSearchParams(window.location.search);
+    const nom = params.get("nom") || "Candidat";
+    const code = params.get("code") || "------";
+
+    document.getElementById("welcome").textContent = "Bienvenue " + nom + " 👋";
+    document.getElementById("code").textContent = code;
+  </script>
+</body>
+</html>

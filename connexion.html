@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Connexion - CDM Ligaverband</title>
+  <link rel="icon" type="image/png" href="https://i.ibb.co/KcYMxCrq/image.jpg">
+  <style>
+    body {
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      margin:0;
+      padding:0;
+      background:#f4f6fb;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+    .card {
+      background:white;
+      border-radius:12px;
+      padding:30px;
+      max-width:400px;
+      width:100%;
+      text-align:center;
+      box-shadow:0 6px 20px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color:#133f9a;
+      margin-bottom:20px;
+    }
+    input {
+      width:100%;
+      padding:12px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      margin-bottom:15px;
+      font-size:16px;
+    }
+    button {
+      width:100%;
+      padding:12px;
+      border:none;
+      border-radius:8px;
+      background:linear-gradient(180deg, #2b66d6, #133f9a);
+      color:white;
+      font-size:16px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+    button:hover { opacity:0.9; }
+    .message { margin-top:15px; font-size:15px; font-weight:bold; }
+    .error { color:red; }
+  </style>
+  <!-- Supabase SDK -->
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = "https://ohuhgrjbciksfhjgewbo.supabase.co"; 
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9odWhncmpiY2lrc2Zoamdld2JvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgwODI2NjAsImV4cCI6MjA3MzY1ODY2MH0.Sg08ABEQI2V7xDtJQh0WqbwAf1xVOmcjjmZSTHrHtgY";
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  </script>
+</head>
+<body>
+  <div class="card">
+    <h1>Connexion</h1>
+    <form id="login-form">
+      <input id="code" type="text" placeholder="Entrez votre code à 14 chiffres" required maxlength="14" />
+      <button type="submit">Se connecter</button>
+    </form>
+    <div id="message" class="message"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById("login-form");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      message.textContent = "";
+      const code = document.getElementById("code").value.trim();
+
+      if (!/^[0-9]{14}$/.test(code)) {
+        message.textContent = "⚠️ Le code doit contenir exactement 14 chiffres.";
+        message.className = "message error";
+        return;
+      }
+
+      // Vérifier dans Supabase
+      const { data, error } = await supabase
+        .from("candidats")
+        .select("*")
+        .eq("code", code)
+        .single();
+
+      if (error || !data) {
+        message.textContent = "❌ Code invalide. Vérifiez et réessayez.";
+        message.className = "message error";
+      } else {
+        // Stocker les infos dans localStorage pour les passer à profil.html
+        localStorage.setItem("candidat", JSON.stringify(data));
+        window.location.href = "profil.html";
+      }
+    });
+  </script>
+</body>
+</html>

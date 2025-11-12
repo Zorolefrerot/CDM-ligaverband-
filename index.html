@@ -1,84 +1,118 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="https://i.ibb.co/KcYMxCrq/image.jpg">
-  <title>CDM - Ligaverband</title>
-<meta property="og:title" content="🌍 Inscrivez-vous a la Ligaverband CDM| By Merdi Madimba">
-<meta property="og:description" content=" inscription CDM ligaverband ">
-<meta property="og:image" content="https://i.ibb.co/KcYMxCrq/image.jpg">
-<meta property="og:url" content="https://isekai-auto-bot-idrem.onrender.com">
-<meta property="og:type" content="website">
-		 <meta name="twitter:card" content="summary_large_image">
-		 
-			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MerdiVersa — Chat IA</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c0f1f;
+  --card:rgba(255,255,255,0.05);
+  --accent1:#6b8eff;
+  --accent2:#ff6b6b;
+  --muted:rgba(255,255,255,0.65);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial;background:var(--bg);color:#eaf0ff;}
+.container{max-width:1000px;margin:0 auto;padding:32px;}
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:52px;height:52px;border-radius:12px;display:grid;place-items:center;font-weight:800;background:linear-gradient(135deg,var(--accent1),var(--accent2));box-shadow:0 10px 30px rgba(0,0,0,0.6)}
+h1{margin:0;font-size:22px}
+.nav{display:flex;gap:12px}
+.btn{padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.05);background:transparent;color:var(--muted);font-weight:600;cursor:pointer}
+.btn.primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));border:none;color:white}
+
+.chat-container{background:var(--card);padding:20px;border-radius:16px;display:flex;flex-direction:column;height:600px;box-shadow:0 6px 20px rgba(0,0,0,0.4);}
+.messages{flex:1;overflow-y:auto;margin-bottom:12px;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.03);}
+.msg{display:inline-block;max-width:80%;padding:10px 14px;border-radius:12px;margin-bottom:8px;font-size:14px;line-height:1.4}
+.msg.user{background:linear-gradient(90deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));align-self:flex-end}
+.msg.ai{background:linear-gradient(90deg, rgba(107,142,255,0.14), rgba(255,107,107,0.08));color:#041124}
+
+.composer{display:flex;gap:8px}
+.composer textarea{flex:1;min-height:56px;border-radius:10px;padding:12px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;resize:none;font-size:14px}
+.composer .send{min-width:110px}
+footer{text-align:center;margin-top:20px;font-size:13px;color:var(--muted);}
+@media(max-width:768px){.chat-container{height:500px}}
+</style>
 </head>
 <body>
-  <header>
-    <h1>CDM de la Ligaverband</h1>
-  </header>
-
-  <main>
-    <section class="description">
-      <p>
-        Bienvenue à la <strong>Coupe du Monde (CDM) de la Ligaverband</strong> ! ⚔️  
-        Ce tournoi unique réunit <strong>32 participants</strong> dans une compétition
-        palpitante inspirée de la Coupe du Monde réelle.  
-      </p>
-      <p>
-        📌 Le tournoi commencera par une phase de <strong>poules</strong> où chaque participant
-        devra affronter ses adversaires pour obtenir le maximum de points.  
-        Seuls les meilleurs de chaque groupe se qualifieront pour les phases éliminatoires :  
-        <strong>huitièmes, quarts, demi-finales</strong> et enfin... la GRANDE FINALE. 🏆
-      </p>
-      <p>
-        🔥 Ce tournoi met en avant la culture manga avec 20 univers différents représentés,
-        chacun apportant son lot de défis et de surprises. Les participants devront se
-        dépasser pour espérer devenir le <strong>Champion du Monde de la Ligaverband</strong>.  
-      </p>
-      <p>
-        Préparez-vous, car la CDM de la Ligaverband n’est pas seulement une compétition :
-        c’est une aventure, une expérience, et surtout une grande fête autour du manga. 🎉
-      </p>
-    </section>
-
-    <!-- Bouton Verse -->
-    <button id="verse-btn" class="btn-secondary">Verse</button>
-
-    <!-- Liste des mangas (cachée par défaut) -->
-    <div id="verse-list" class="hidden">
-      <h2>Mangas du Tournoi</h2>
-      <ul>
-        <li>Naruto</li>
-        <li>One Piece</li>
-        <li>Classroom Of the Elite</li>
-        <li>Bleach</li>
-        <li>Code Geass</li>
-        <li>Kuroko's Basket</li>
-        <li>Tensura</li>
-        <li>Demon Slayer</li>
-        <li>Jujutsu Kaisen</li>
-        <li>Tokyo Ghoul</li>
-        <li>Undead Unluck</li>
-        <li>Akame Ga Kill</li>
-        <li>Death Note</li>
-        <li>Kaiju Nº8</li>
-        <li>Nanatsu no taizai</li>
-        <li>Tokyo Revengers</li>
-        <li>One punch man</li>
-        <li>Bungo stray Dogs</li>
-        <li>Fire Force</li>
-        <li>Vinland saga</li>
-      </ul>
+<div class="container">
+<header>
+  <div class="brand">
+    <div class="logo">M</div>
+    <div>
+      <h1>MerdiVersa</h1>
+      <div style="font-size:13px;color:var(--muted)">Plateforme IA — Chat interactif</div>
     </div>
+  </div>
+  <nav class="nav">
+    <a href="index.html" class="btn">Accueil</a>
+    <a href="image.html" class="btn">Images</a>
+    <a href="music.html" class="btn">Musique</a>
+  </nav>
+</header>
 
-    <!-- Bouton inscription -->
-    <a href="inscription.html" class="btn-primary">Cliquez ici pour vous inscrire</a>
-  </main>
+<section class="chat-container">
+  <div id="messages" class="messages">
+    <div class="msg ai">Bonjour 👋 — je suis MerdiVersa, votre Intelligence Artificielle créée par Merdi Madimba de la RDC. Je peux répondre à vos questions, générer des idées, analyser et produire du contenu multimédia. Posez-moi une question pour commencer.</div>
+  </div>
+  <div class="composer">
+    <textarea id="input" placeholder="Écrivez votre message ici..."></textarea>
+    <button id="send" class="btn primary send">Envoyer</button>
+  </div>
+</section>
+
+<footer>© 2025 MerdiVersa — Créé par Merdi Madimba</footer>
+</div>
+
+<script>
+const messagesEl = document.getElementById('messages');
+const inputEl = document.getElementById('input');
+const sendBtn = document.getElementById('send');
+
+function appendMessage(text, who='ai'){
+  const div = document.createElement('div');
+  div.className = 'msg ' + (who==='user'?'user':'ai');
+  div.textContent = text;
+  messagesEl.appendChild(div);
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+}
+
+async function getAIResponse(prompt){
+  try{
+    // Remplace ton URL Shizu API ici
+    const res = await fetch(`https://shizuapi.onrender.com/api/gpt5?prompt=${encodeURIComponent(prompt)}&uid=&reset=`);
+    const data = await res.json();
+    if(data.status && data.result){
+      return data.result;
+    } else {
+      return "Désolé, impossible de récupérer la réponse de l'IA pour le moment.";
+    }
+  } catch(err){
+    console.error(err);
+    return "Erreur réseau — veuillez réessayer.";
+  }
+}
+
+sendBtn.addEventListener('click', async ()=>{
+  const text = inputEl.value.trim();
+  if(!text) return;
+  appendMessage(text,'user');
+  inputEl.value='';
+  appendMessage("...",'ai'); // placeholder
+  const aiBubble = messagesEl.querySelector('.msg.ai:last-child');
+  const response = await getAIResponse(text);
+  aiBubble.textContent = response;
+});
+
+inputEl.addEventListener('keydown', (e)=>{
+  if(e.key==='Enter' && !e.shiftKey){
+    e.preventDefault();
+    sendBtn.click();
+  }
+});
+</script>
 </body>
 </html>

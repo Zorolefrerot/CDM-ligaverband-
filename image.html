@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MerdiVersa — Générateur d'images</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#0c0f1f;
@@ -83,12 +83,16 @@ generateBtn.addEventListener('click', async () => {
   imageBox.appendChild(loader);
 
   try {
-    // Créer prompt final incluant "MerdiVersa" pour watermark dans l'image
-    const finalPrompt = `Génère une image correspondant à : ${userPrompt}. Intègre de façon visible le texte "MerdiVersa" dans l'image en bas à droite en petit.`;
+    // Créer prompt final incluant "MerdiVersa" pour watermark
+    const finalPrompt = `Génère une image correspondant à : ${userPrompt}. Intègre de façon visible le texte "MerdiVersa" en bas à droite en petit.`;
 
-    // Envoyer à Anychuan Gemini pour traitement
-    const apiUrl = `https://shizuapi.onrender.com/api/fluxpro?prompt=${encodeURIComponent(finalPrompt)}`;
-    const res = await fetch(apiUrl);
+    // Utiliser la route proxy de ton serveur
+    const res = await fetch('/api/generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt: finalPrompt })
+    });
+
     const blob = await res.blob();
     const imageUrl = URL.createObjectURL(blob);
     currentImageURL = imageUrl;

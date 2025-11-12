@@ -48,7 +48,7 @@ footer{text-align:center;padding:12px;color:#666;font-size:13px;background:#111;
 
 <section class="chat-container">
   <div id="messages" class="messages">
-    <div class="msg ai">Bonjour 👋 — je suis MerdiVersa, votre IA créée par Merdi Madimba de Kinshasa, RDC. Posez-moi une question pour commencer.</div>
+    <div class="msg ai">Bonjour 👋 — je suis MerdiVersa, votre IA créée par Merdi Madimba. Posez-moi une question pour commencer.</div>
   </div>
   <div class="composer">
     <textarea id="input" placeholder="Écrivez votre message ici..."></textarea>
@@ -63,12 +63,11 @@ const messagesEl = document.getElementById('messages');
 const inputEl = document.getElementById('input');
 const sendBtn = document.getElementById('send');
 
-
 let conversationMemory = [
-  {role:"system", content:"Tu es MerdiVersa, IA créée par Merdi Madimba à Kinshasa, RDC. Tu te souviens de la conversation et réponds naturellement."}
+  {role:"system", content:"Tu es MerdiVersa, IA créée par Merdi Madimba à Kinshasa. Tu te souviens de la conversation et réponds naturellement."}
 ];
 
-
+// Ajouter le message dans l'interface
 function appendMessage(text, who='ai'){
   const div = document.createElement('div');
   div.className = 'msg ' + (who==='user'?'user':'ai');
@@ -78,6 +77,7 @@ function appendMessage(text, who='ai'){
   return div;
 }
 
+// Effet typewriter
 function typeWriter(element, text, speed=20){
   return new Promise(resolve=>{
     element.textContent='';
@@ -94,34 +94,45 @@ function typeWriter(element, text, speed=20){
   });
 }
 
-
+// Fonction principale pour récupérer la réponse IA
 async function getAIResponse(prompt){
   const memoryText = conversationMemory.map(m=>`${m.role==='user'?'Utilisateur':'IA'}: ${m.content}`).join("\n");
   const fullPrompt = memoryText + "\nUtilisateur: " + prompt;
 
-  // Essayer l'API principale ShizuAPI
+  // Détecter si prompt complexe (code, maths, physique)
+  const isComplex = /code|programming|javascript|python|java|calcul|math|physique|chimie/i.test(prompt);
+
+  if(isComplex){
+    // AryChauhan API pour tâches complexes
+    try{
+      const res = await fetch('https://arychauhann.onrender.com/api/gemini-proxy2',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({prompt: fullPrompt})
+      });
+      // Vérifier si réponse JSON
+      const text = await res.text();
+      try{
+        const data = JSON.parse(text);
+        if(data?.result) return data.result;
+        throw new Error("No result in JSON");
+      } catch{
+        console.warn("AryChauhan API returned non-JSON");
+      }
+    } catch(err){ console.warn("AryChauhan API failed:", err);}
+  }
+
+  // ShizuAPI fallback pour tout le reste
   try{
     const res = await fetch(`https://shizuapi.onrender.com/api/galichat?prompt=${encodeURIComponent(fullPrompt)}`);
     const data = await res.json();
     if(data?.result?.data) return data.result.data;
   } catch(err){ console.warn("ShizuAPI failed:", err); }
 
-  // Si ShizuAPI échoue, fallback sur Gemini Proxy
-  try{
-    const res = await fetch(`https://arychauhann.onrender.com/api/gemini-proxy2`, {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({prompt: fullPrompt})
-    });
-    const data = await res.json();
-    if(data?.result) return data.result;
-  } catch(err){ console.warn("Gemini Proxy failed:", err); }
-
-  // Si tout échoue
   return "Désolé, je n'ai pas pu répondre. Réessayez.";
 }
 
-
+// Envoi du message
 async function sendMessage(){
   const text = inputEl.value.trim();
   if(!text) return;
@@ -140,7 +151,6 @@ async function sendMessage(){
 
   conversationMemory.push({role:'ai', content:response});
 }
-
 
 sendBtn.addEventListener('click', sendMessage);
 inputEl.addEventListener('keydown', (e)=>{

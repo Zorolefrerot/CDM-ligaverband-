@@ -44,6 +44,7 @@ button {
   margin-top: 10px;
 }
 a { color: #6b8eff; text-decoration: none; }
+.small-muted { font-size: 13px; color: rgba(255,255,255,0.7); margin-top:8px; }
 </style>
 </head>
 <body>
@@ -53,34 +54,8 @@ a { color: #6b8eff; text-decoration: none; }
   <input type="tel" id="telephone" placeholder="Numéro de téléphone" required>
   <input type="password" id="motdepasse" placeholder="Mot de passe" required>
   <button id="loginBtn">Se connecter</button>
-  <p>Pas encore de compte ? <a href="register.html">S’inscrire</a></p>
+  <p class="small-muted">Pas encore de compte ? <a href="register.html">S’inscrire</a></p>
 </div>
-
-<script>
-const { createClient } = supabase
-const supabaseUrl = "https://rbxvodkhwhnpbihroild.supabase.co"
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJieHZvZGtod2hucGJpaHJvaWxkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwMTYxODEsImV4cCI6MjA3ODU5MjE4MX0.UaSF4gtD4BemEhe-K3ImzE-ewMGGKRWJ-rShc-mnaFw"
-const supabaseClient = createClient(supabaseUrl, supabaseKey)
-
-document.getElementById("loginBtn").addEventListener("click", async () => {
-  const telephone = document.getElementById("telephone").value.trim()
-  const motdepasse = document.getElementById("motdepasse").value.trim()
-
-  const { data, error } = await supabaseClient
-    .from("users")
-    .select("*")
-    .eq("telephone", telephone)
-    .eq("mot_de_passe", motdepasse)
-    .single()
-
-  if (error || !data) {
-    alert("Numéro ou mot de passe incorrect.")
-  } else {
-    localStorage.setItem("user", JSON.stringify(data))
-    alert("Connexion réussie, bienvenue " + data.prenom + " 👋")
-    window.location.href = "merdiversa.html"
-  }
-})
-</script>
+<script src="login.js"></script>
 </body>
 </html>

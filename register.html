@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MerdiVersa — Inscription</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<style>
+body {
+  background: linear-gradient(135deg,#111827,#1f2937);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container {
+  background: rgba(255,255,255,0.05);
+  padding: 40px;
+  border-radius: 16px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0,0,0,0.3);
+}
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+}
+button {
+  background: linear-gradient(90deg,#6b8eff,#ff6b6b);
+  border: none;
+  padding: 12px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+a { color: #6b8eff; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Créer un compte MerdiVersa</h2>
+  <input type="text" id="nom" placeholder="Nom" required>
+  <input type="text" id="postnom" placeholder="Postnom" required>
+  <input type="text" id="prenom" placeholder="Prénom" required>
+  <input type="tel" id="telephone" placeholder="Numéro de téléphone" required>
+  <input type="password" id="motdepasse" placeholder="Mot de passe (8+ caractères, 1 chiffre)" required>
+  <button id="registerBtn">S’inscrire</button>
+  <p>Déjà inscrit ? <a href="login.html">Se connecter</a></p>
+</div>
+
+<script>
+const { createClient } = supabase
+const supabaseUrl = "https://rbxvodkhwhnpbihroild.supabase.co"
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJieHZvZGtod2hucGJpaHJvaWxkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwMTYxODEsImV4cCI6MjA3ODU5MjE4MX0.UaSF4gtD4BemEhe-K3ImzE-ewMGGKRWJ-rShc-mnaFw"
+const supabaseClient = createClient(supabaseUrl, supabaseKey)
+
+document.getElementById("registerBtn").addEventListener("click", async () => {
+  const nom = document.getElementById("nom").value.trim()
+  const postnom = document.getElementById("postnom").value.trim()
+  const prenom = document.getElementById("prenom").value.trim()
+  const telephone = document.getElementById("telephone").value.trim()
+  const motdepasse = document.getElementById("motdepasse").value.trim()
+
+  if (!/^(?=.*[0-9]).{8,}$/.test(motdepasse)) {
+    alert("Le mot de passe doit contenir au moins 8 caractères et un chiffre.")
+    return
+  }
+
+  const { data, error } = await supabaseClient
+    .from("users")
+    .insert([{ nom, postnom, prenom, telephone, mot_de_passe: motdepasse }])
+
+  if (error) {
+    alert("Erreur : " + error.message)
+  } else {
+    alert("Compte créé avec succès ! Vous pouvez vous connecter.")
+    window.location.href = "login.html"
+  }
+})
+</script>
+</body>
+</html>

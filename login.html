@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connexion — MerdiVersa</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<style>
+body {
+  background: linear-gradient(135deg,#0c0f1f,#15192e);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container {
+  background: rgba(255,255,255,0.05);
+  padding: 40px;
+  border-radius: 16px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0,0,0,0.3);
+}
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+}
+button {
+  background: linear-gradient(90deg,#6b8eff,#ff6b6b);
+  border: none;
+  padding: 12px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+a { color: #6b8eff; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Connexion MerdiVersa</h2>
+  <input type="tel" id="telephone" placeholder="Numéro de téléphone" required>
+  <input type="password" id="motdepasse" placeholder="Mot de passe" required>
+  <button id="loginBtn">Se connecter</button>
+  <p>Pas encore de compte ? <a href="register.html">S’inscrire</a></p>
+</div>
+
+<script>
+const { createClient } = supabase
+const supabaseUrl = "https://rbxvodkhwhnpbihroild.supabase.co"
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJieHZvZGtod2hucGJpaHJvaWxkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwMTYxODEsImV4cCI6MjA3ODU5MjE4MX0.UaSF4gtD4BemEhe-K3ImzE-ewMGGKRWJ-rShc-mnaFw"
+const supabaseClient = createClient(supabaseUrl, supabaseKey)
+
+document.getElementById("loginBtn").addEventListener("click", async () => {
+  const telephone = document.getElementById("telephone").value.trim()
+  const motdepasse = document.getElementById("motdepasse").value.trim()
+
+  const { data, error } = await supabaseClient
+    .from("users")
+    .select("*")
+    .eq("telephone", telephone)
+    .eq("mot_de_passe", motdepasse)
+    .single()
+
+  if (error || !data) {
+    alert("Numéro ou mot de passe incorrect.")
+  } else {
+    localStorage.setItem("user", JSON.stringify(data))
+    alert("Connexion réussie, bienvenue " + data.prenom + " 👋")
+    window.location.href = "index.html"
+  }
+})
+</script>
+</body>
+</html>

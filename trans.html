@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MerdiVersa Translate 🌐</title>
+<link rel="stylesheet" href="trans.css">
+</head>
+<body>
+
+<!-- Logo centré -->
+<img id="logo" src="https://i.imgur.com/tsSALyQ.jpeg" alt="MerdiVersa Logo">
+
+<h1>🌐 MerdiVersa Translate</h1>
+
+<textarea id="inputText" placeholder="Écrivez votre texte ici..."></textarea>
+
+<div>
+  <select id="sourceLang">
+    <option value="auto">🌎 Détecter la langue</option>
+    <option value="en">🇺🇸 Anglais</option>
+    <option value="fr">🇫🇷 Français</option>
+    <option value="es">🇪🇸 Espagnol</option>
+    <option value="de">🇩🇪 Allemand</option>
+    <option value="zh">🇨🇳 Chinois</option>
+    <option value="ja">🇯🇵 Japonais</option>
+    <option value="ko">🇰🇷 Coréen</option>
+    <option value="ar">🇸🇦 Arabe</option>
+    <option value="ru">🇷🇺 Russe</option>
+    <option value="it">🇮🇹 Italien</option>
+    <option value="pt">🇵🇹 Portugais</option>
+    <option value="hi">🇮🇳 Hindi</option>
+    <option value="sw">🇰🇪 Swahili</option>
+    <option value="ln">🇨🇩 Lingala</option>
+    <option value="yo">🇳🇬 Yoruba (Nigéria)</option>
+    <option value="ig">🇳🇬 Igbo</option>
+    <option value="ff">🇧🇯 Peul (Bénin)</option>
+    <option value="bm">🇧🇯 Bambara (Bénin)</option>
+    <option value="eu">🇪🇸 Basque</option>
+    <option value="vi">🇻🇳 Vietnamien</option>
+    <option value="th">🇹🇭 Thaïlandais</option>
+    <option value="tr">🇹🇷 Turc</option>
+    <option value="fa">🇮🇷 Persan</option>
+    <option value="ur">🇵🇰 Ourdou</option>
+    <option value="pl">🇵🇱 Polonais</option>
+    <option value="nl">🇳🇱 Néerlandais</option>
+    <option value="sv">🇸🇪 Suédois</option>
+    <option value="no">🇳🇴 Norvégien</option>
+    <option value="fi">🇫🇮 Finnois</option>
+    <option value="da">🇩🇰 Danois</option>
+    <option value="cs">🇨🇿 Tchèque</option>
+    <option value="sk">🇸🇰 Slovaque</option>
+    <option value="ro">🇷🇴 Roumain</option>
+    <option value="hu">🇭🇺 Hongrois</option>
+    <option value="el">🇬🇷 Grec</option>
+    <option value="he">🇮🇱 Hébreu</option>
+    <option value="id">🇮🇩 Indonésien</option>
+    <option value="ms">🇲🇾 Malais</option>
+    <option value="tl">🇵🇭 Tagalog</option>
+    <option value="ta">🇮🇳 Tamoul</option>
+    <option value="te">🇮🇳 Télougou</option>
+    <option value="kn">🇮🇳 Kannada</option>
+    <option value="ml">🇮🇳 Malayalam</option>
+    <option value="pa">🇮🇳 Pendjabi</option>
+    <option value="am">🇪🇹 Amharique</option>
+    <option value="so">🇸🇴 Somali</option>
+    <option value="km">🇰🇭 Khmer</option>
+    <option value="my">🇲🇲 Birman</option>
+    <option value="ne">🇳🇵 Népali</option>
+    <option value="bn">🇧🇩 Bengali</option>
+  </select>
+
+  <select id="targetLang">
+    <!-- Même liste que sourceLang -->
+    <option value="en">🇺🇸 Anglais</option>
+    <option value="fr">🇫🇷 Français</option>
+    <option value="es">🇪🇸 Espagnol</option>
+    <option value="de">🇩🇪 Allemand</option>
+    <option value="zh">🇨🇳 Chinois</option>
+    <option value="ja">🇯🇵 Japonais</option>
+    <option value="ko">🇰🇷 Coréen</option>
+    <option value="ar">🇸🇦 Arabe</option>
+    <option value="ru">🇷🇺 Russe</option>
+    <option value="it">🇮🇹 Italien</option>
+    <option value="pt">🇵🇹 Portugais</option>
+    <option value="hi">🇮🇳 Hindi</option>
+    <option value="sw">🇰🇪 Swahili</option>
+    <option value="ln">🇨🇩 Lingala</option>
+    <option value="yo">🇳🇬 Yoruba (Nigéria)</option>
+    <option value="ig">🇳🇬 Igbo</option>
+    <option value="ff">🇧🇯 Peul (Bénin)</option>
+    <option value="bm">🇧🇯 Bambara (Bénin)</option>
+    <option value="eu">🇪🇸 Basque</option>
+    <option value="vi">🇻🇳 Vietnamien</option>
+    <option value="th">🇹🇭 Thaïlandais</option>
+    <option value="tr">🇹🇷 Turc</option>
+    <option value="fa">🇮🇷 Persan</option>
+    <option value="ur">🇵🇰 Ourdou</option>
+    <option value="pl">🇵🇱 Polonais</option>
+    <option value="nl">🇳🇱 Néerlandais</option>
+    <option value="sv">🇸🇪 Suédois</option>
+    <option value="no">🇳🇴 Norvégien</option>
+    <option value="fi">🇫🇮 Finnois</option>
+    <option value="da">🇩🇰 Danois</option>
+    <option value="cs">🇨🇿 Tchèque</option>
+    <option value="sk">🇸🇰 Slovaque</option>
+    <option value="ro">🇷🇴 Roumain</option>
+    <option value="hu">🇭🇺 Hongrois</option>
+    <option value="el">🇬🇷 Grec</option>
+    <option value="he">🇮🇱 Hébreu</option>
+    <option value="id">🇮🇩 Indonésien</option>
+    <option value="ms">🇲🇾 Malais</option>
+    <option value="tl">🇵🇭 Tagalog</option>
+    <option value="ta">🇮🇳 Tamoul</option>
+    <option value="te">🇮🇳 Télougou</option>
+    <option value="kn">🇮🇳 Kannada</option>
+    <option value="ml">🇮🇳 Malayalam</option>
+    <option value="pa">🇮🇳 Pendjabi</option>
+    <option value="am">🇪🇹 Amharique</option>
+    <option value="so">🇸🇴 Somali</option>
+    <option value="km">🇰🇭 Khmer</option>
+    <option value="my">🇲🇲 Birman</option>
+    <option value="ne">🇳🇵 Népali</option>
+    <option value="bn">🇧🇩 Bengali</option>
+  </select>
+</div>
+
+<button id="translateBtn">Traduire</button>
+
+<div id="result">Votre traduction apparaîtra ici…</div>
+
+<script src="trans.js"></script>
+</body>
+</html>

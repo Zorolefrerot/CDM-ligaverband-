@@ -1,44 +1,42 @@
 require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
+const path = require('path');
 const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors({ origin: ['http://localhost:8080'] }));
+app.use(cors());
 app.use(express.json());
 
-// Endpoint pour AryChauhan API
-app.post('/api/ary', async (req, res) => {
+// Servir directement chat.html depuis ce dossier
+app.use(express.static(__dirname));
+
+// API locale → API distante
+app.post('/api/chat', async (req, res) => {
   const { prompt } = req.body;
-  if(!prompt) return res.status(400).json({error:'prompt required'});
-  try{
-    const response = await axios.post('https://arychauhann.onrender.com/api/gemini-proxy2', {
-      prompt
-    }, {
-      headers: { 'Authorization': `Bearer ${process.env.ARYCHA_API_KEY}` }
-    });
-    res.json(response.data);
-  }catch(err){
-    console.error(err.message);
-    res.status(500).json({error:'AryChauhan API failed'});
+  if (!prompt) return res.status(400).json({ error: "Missing prompt" });
+
+  try {
+    const response = await axios.post(
+      "https://api-library-kohi.onrender.com/api/amd-gpt",
+      { prompt, user: "221212" },
+      { headers: { "Content-Type": "application/json" } }
+    );
+
+    res.json({ result: response.data.data });
+  } catch (err) {
+    console.error("API error:", err.message);
+    res.status(500).json({ result: "Erreur API distante" });
   }
 });
 
-// Endpoint pour ShizuAPI
-app.get('/api/shizu', async (req,res)=>{
-  const prompt = req.query.prompt;
-  if(!prompt) return res.status(400).json({error:'prompt required'});
-  try{
-    const response = await axios.get(`https://shizuapi.onrender.com/api/galichat?prompt=${encodeURIComponent(prompt)}`,{
-      headers: { 'Authorization': `Bearer ${process.env.SHIZU_API_KEY}` }
-    });
-    res.json(response.data);
-  }catch(err){
-    console.error(err.message);
-    res.status(500).json({error:'ShizuAPI failed'});
-  }
+// Fallback → ouvre chat.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'chat.html'));
 });
 
-app.listen(PORT, ()=>console.log(`Proxy server listening on port ${PORT}`));
+app.listen(PORT, () =>
+  console.log(`🔥 MerdiVersa backend démarré : http://localhost:${PORT}`)
+);

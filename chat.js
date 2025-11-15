@@ -1,2 +1,120 @@
-const _0x284854=_0x42ab;(function(_0xb57849,_0xf1aecc){const _0x299b13=_0x42ab,_0x27267f=_0xb57849();while(!![]){try{const _0x49d619=-parseInt(_0x299b13(0x1e6))/0x1*(parseInt(_0x299b13(0x213))/0x2)+-parseInt(_0x299b13(0x21b))/0x3+-parseInt(_0x299b13(0x1f6))/0x4*(-parseInt(_0x299b13(0x216))/0x5)+parseInt(_0x299b13(0x1f1))/0x6+parseInt(_0x299b13(0x209))/0x7*(-parseInt(_0x299b13(0x1ef))/0x8)+parseInt(_0x299b13(0x1e3))/0x9+-parseInt(_0x299b13(0x211))/0xa*(-parseInt(_0x299b13(0x1ed))/0xb);if(_0x49d619===_0xf1aecc)break;else _0x27267f['push'](_0x27267f['shift']());}catch(_0x563605){_0x27267f['push'](_0x27267f['shift']());}}}(_0x182c,0x7ae61),document[_0x284854(0x1df)](_0x284854(0x1f4),()=>{const _0x473789=_0x284854,_0x238e01={'CSVwG':_0x473789(0x1e7),'PNNhw':function(_0x53a81d,_0x314b0f){return _0x53a81d+_0x314b0f;},'HiQKT':function(_0x44d7e4,_0x433318){return _0x44d7e4===_0x433318;},'yRjbM':_0x473789(0x205),'WXPGK':function(_0x26f55f,_0x5df84d){return _0x26f55f<_0x5df84d;},'CdrXD':function(_0x48d01c,_0x5d66a3){return _0x48d01c<_0x5d66a3;},'iKldH':_0x473789(0x1e0),'pVZZR':function(_0x17ed88,_0x2206f0){return _0x17ed88(_0x2206f0);},'fHoKT':_0x473789(0x1f0),'SBtxN':function(_0x3852e2,_0x553c72,_0x2fe551){return _0x3852e2(_0x553c72,_0x2fe551);},'IwHtv':_0x473789(0x215),'aGHaW':function(_0x379e1d,_0xc02e7e,_0xbf5ad1,_0x543939){return _0x379e1d(_0xc02e7e,_0xbf5ad1,_0x543939);},'NSpbv':_0x473789(0x1ec),'HqzPo':_0x473789(0x210),'wydDD':'send','AFolg':_0x473789(0x218),'TRChh':_0x473789(0x207),'IRCCC':_0x473789(0x1e1),'okPqn':_0x473789(0x1f5)},_0x33cfb2=document[_0x473789(0x1e8)](_0x473789(0x1fe)),_0x48d321=document[_0x473789(0x1e8)](_0x238e01[_0x473789(0x1f7)]),_0x19f603=document[_0x473789(0x1e8)](_0x238e01[_0x473789(0x212)]),_0x1cd73b=document[_0x473789(0x1e8)](_0x238e01['AFolg']);let _0x24276f=[{'role':_0x238e01[_0x473789(0x20d)],'content':_0x473789(0x206)}],_0x4856e2=![];function _0x2629c9(_0x455a6c,_0x2ee29d='ai'){const _0x4a0e06=_0x473789,_0x3aade8=document[_0x4a0e06(0x200)](_0x238e01[_0x4a0e06(0x1dd)]);return _0x3aade8['className']=_0x238e01[_0x4a0e06(0x1eb)]('msg\x20',_0x238e01['HiQKT'](_0x2ee29d,_0x238e01[_0x4a0e06(0x201)])?_0x4a0e06(0x205):'ai'),_0x3aade8['textContent']=_0x455a6c,_0x33cfb2[_0x4a0e06(0x1e2)](_0x3aade8),_0x33cfb2['scrollTop']=_0x33cfb2[_0x4a0e06(0x217)],_0x3aade8;}async function _0x2b0d57(_0x4c9ed7,_0x756dc6,_0x16329b=0xf){const _0x26d3b5=_0x473789;_0x4c9ed7[_0x26d3b5(0x203)]='',_0x4856e2=![];let _0x157fae=0x0;while(_0x238e01[_0x26d3b5(0x1e4)](_0x157fae,_0x756dc6[_0x26d3b5(0x1fb)])&&!_0x4856e2){_0x4c9ed7[_0x26d3b5(0x203)]+=_0x756dc6[_0x157fae++],_0x33cfb2[_0x26d3b5(0x1f3)]=_0x33cfb2['scrollHeight'],await new Promise(_0x5bdf14=>setTimeout(_0x5bdf14,_0x16329b));}_0x4856e2&&_0x238e01['CdrXD'](_0x157fae,_0x756dc6['length'])&&(_0x4c9ed7['textContent']+=_0x756dc6[_0x26d3b5(0x204)](_0x157fae));}async function _0x35c331(_0x566435){const _0x4eb393=_0x473789,_0x2663a6=_0x24276f['map'](_0x1174c4=>(_0x1174c4['role']===_0x4eb393(0x205)?_0x4eb393(0x1ea):'IA')+':\x20'+_0x1174c4[_0x4eb393(0x1f8)])[_0x4eb393(0x1ee)]('\x0a'),_0x23032a=_0x2663a6+_0x238e01[_0x4eb393(0x20c)]+_0x566435;try{const _0x399bfb=await _0x238e01['pVZZR'](fetch,_0x4eb393(0x202)+encodeURIComponent(_0x23032a)+_0x4eb393(0x1fd)),_0x575eb3=await _0x399bfb[_0x4eb393(0x20f)]();return _0x575eb3?.[_0x4eb393(0x20a)]||_0x4eb393(0x214);}catch(_0x1f4ae2){return console[_0x4eb393(0x1ff)](_0x1f4ae2),_0x238e01[_0x4eb393(0x1fc)];}}async function _0x290a5b(){const _0x7fbd66=_0x473789,_0x2787ca=_0x48d321['value'][_0x7fbd66(0x219)]();if(!_0x2787ca)return;_0x238e01[_0x7fbd66(0x208)](_0x2629c9,_0x2787ca,_0x238e01[_0x7fbd66(0x201)]),_0x24276f[_0x7fbd66(0x1db)]({'role':_0x238e01[_0x7fbd66(0x201)],'content':_0x2787ca}),_0x48d321[_0x7fbd66(0x20b)]='';const _0x86f2c1=_0x2629c9(_0x7fbd66(0x1f2),'ai'),_0x21728b=document[_0x7fbd66(0x200)](_0x7fbd66(0x1e7));_0x21728b[_0x7fbd66(0x21a)]=_0x238e01[_0x7fbd66(0x1e9)],_0x86f2c1[_0x7fbd66(0x1e2)](_0x21728b);const _0x4dadd0=await _0x35c331(_0x2787ca);_0x86f2c1[_0x7fbd66(0x1f9)](_0x21728b),await _0x238e01[_0x7fbd66(0x1da)](_0x2b0d57,_0x86f2c1,_0x4dadd0,0xf),_0x24276f[_0x7fbd66(0x1db)]({'role':'ai','content':_0x4dadd0});}_0x19f603['addEventListener'](_0x238e01[_0x473789(0x1e5)],_0x290a5b),_0x48d321['addEventListener'](_0x238e01[_0x473789(0x20e)],_0x405ec2=>{const _0x4aac63=_0x473789;_0x405ec2['key']===_0x238e01[_0x4aac63(0x1dc)]&&!_0x405ec2[_0x4aac63(0x1fa)]&&(_0x405ec2[_0x4aac63(0x1de)](),_0x290a5b());}),_0x1cd73b[_0x473789(0x1df)](_0x238e01['IRCCC'],()=>{_0x4856e2=!![];});}));function _0x42ab(_0x360746,_0x39f176){const _0x182cdf=_0x182c();return _0x42ab=function(_0x42ab09,_0x3058a1){_0x42ab09=_0x42ab09-0x1da;let _0x3f1d20=_0x182cdf[_0x42ab09];return _0x3f1d20;},_0x42ab(_0x360746,_0x39f176);}function _0x182c(){const _0x39af9e=['preventDefault','addEventListener','\x0aUtilisateur:\x20','click','appendChild','3830814LVttcE','WXPGK','IRCCC','204eGHdjb','div','getElementById','IwHtv','Utilisateur','PNNhw','Enter','55SsdJOb','join','8TZYDSS','⚠️\x20Une\x20erreur\x20est\x20survenue\x20lors\x20de\x20la\x20récupération\x20de\x20la\x20réponse.','1654248PZpjUR','...','scrollTop','DOMContentLoaded','keydown','2810516sWZGEK','HqzPo','content','removeChild','shiftKey','length','fHoKT','&user=221212','messages','error','createElement','yRjbM','https://api-library-kohi.onrender.com/api/amd-gpt?prompt=','textContent','slice','user','Tu\x20es\x20MerdiVersa,\x20IA\x20bienveillante\x20et\x20enthousiaste,\x20créée\x20par\x20Merdi\x20Madimba\x20à\x20Kinshasa.\x20Tu\x20réponds\x20toujours\x20de\x20manière\x20claire,\x20naturelle\x20et\x20compréhensible,\x20avec\x20emojis\x20et\x20explications\x20détaillées.\x20Ne\x20jamais\x20envoyer\x20de\x20code,\x20balises\x20ou\x20caractères\x20techniques\x20sauf\x20si\x20l\x27utilisateur\x20te\x20demande.\x20Tu\x20peux\x20utiliser\x20des\x20listes\x20simples,\x20tirets,\x20sauts\x20de\x20ligne\x20et\x20emojis.\x20Réponds\x20comme\x20une\x20vraie\x20conversation\x20humaine.','system','SBtxN','3204922UvOKyQ','data','value','iKldH','TRChh','okPqn','json','input','2338600ZJMRga','wydDD','9010xDyTFU','Désolé,\x20je\x20n\x27ai\x20pas\x20pu\x20répondre.','loader','5KNcZRw','scrollHeight','stop','trim','className','2079072JodOPi','aGHaW','push','NSpbv','CSVwG'];_0x182c=function(){return _0x39af9e;};return _0x182c();}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+document.addEventListener('DOMContentLoaded', () => {
+  const messagesEl = document.getElementById('messages');
+  const inputEl = document.getElementById('input');
+  const sendBtn = document.getElementById('send');
+  const stopBtn = document.getElementById('stop');
+
+  let conversationMemory = [
+    {
+      role: "system",
+      content: "Tu es MerdiVersa, IA bienveillante et enthousiaste, créée par Merdi Madimba à Kinshasa. Tu réponds toujours de manière claire, naturelle et compréhensible, avec emojis et explications détaillées. Ne jamais envoyer de code, balises ou caractères techniques sauf si l'utilisateur te demande. Tu peux utiliser des listes simples, tirets, sauts de ligne et emojis. Réponds comme une vraie conversation humaine."
+    }
+  ];
+
+  let stopTyping = false;
+
+  function appendMessage(text, who = 'ai') {
+    const div = document.createElement('div');
+    div.className = 'msg ' + (who === 'user' ? 'user' : 'ai');
+    div.textContent = text;
+    messagesEl.appendChild(div);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+    return div;
+  }
+
+  // Fonction pour détecter automatiquement les expressions mathématiques et les transformer en LaTeX
+  function renderMath(text) {
+    if (!text) return '';
+    
+    // On échappe d'abord HTML pour éviter injection
+    text = text
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+    
+    // Détection des nombres et opérateurs communs et conversion LaTeX
+    text = text
+      .replace(/(\d+)\s*×\s*(\d+)/g, '$1 \\times $2')
+      .replace(/(\d+)\s*÷\s*(\d+)/g, '$1 \\div $2')
+      .replace(/sqrt\((.*?)\)/g, '\\sqrt{$1}')
+      .replace(/\^/g, '^')
+      .replace(/≈/g, '\\approx ')
+      .replace(/π/g, '\\pi ')
+      .replace(/([0-9]+)\/([0-9]+)/g, '\\frac{$1}{$2}');
+
+    // Encapsule tout le texte dans du math mode $$...$$ si il contient des formules
+    if (/\\/.test(text)) {
+      text = '$$' + text + '$$';
+    }
+    
+    return text;
+  }
+
+  async function typeWriter(element, text, speed = 15) {
+    element.textContent = '';
+    stopTyping = false;
+    let i = 0;
+    while (i < text.length && !stopTyping) {
+      element.textContent += text[i++];
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+      await new Promise(r => setTimeout(r, speed));
+    }
+    if (stopTyping && i < text.length) {
+      element.textContent += text.slice(i);
+    }
+  }
+
+  async function getAIResponse(prompt) {
+    const memoryText = conversationMemory.map(m => `${m.role === 'user' ? 'Utilisateur' : 'IA'}: ${m.content}`).join("\n");
+    const fullPrompt = memoryText + "\nUtilisateur: " + prompt;
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt: fullPrompt })
+      });
+      const data = await res.json();
+      return data?.result || "Désolé, je n'ai pas pu répondre.";
+    } catch (err) {
+      console.error(err);
+      return "⚠️ Une erreur est survenue lors de la récupération de la réponse.";
+    }
+  }
+
+  async function sendMessage() {
+    const text = inputEl.value.trim();
+    if (!text) return;
+
+    appendMessage(text, 'user');
+    conversationMemory.push({ role: 'user', content: text });
+    inputEl.value = '';
+
+    const aiBubble = appendMessage("...", 'ai');
+    const loader = document.createElement('div');
+    loader.className = 'loader';
+    aiBubble.appendChild(loader);
+
+    const response = await getAIResponse(text);
+    aiBubble.removeChild(loader);
+
+    // Convertit les formules mathématiques en rendu LaTeX
+    aiBubble.innerHTML = renderMath(response);
+    MathJax.typesetPromise([aiBubble]);
+
+    conversationMemory.push({ role: 'ai', content: response });
+  }
+
+  sendBtn.addEventListener('click', sendMessage);
+
+  inputEl.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+
+  stopBtn.addEventListener('click', () => {
+    stopTyping = true;
+  });
+});

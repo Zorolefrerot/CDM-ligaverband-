@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pinterest — MerdiVersa</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pin.css">
+</head>
+<body>
+
+<div class="top-nav">
+  <button onclick="location.href='merdiversa.html'">🏠 Accueil</button>
+</div>
+
+<header>
+  <h1>Pinterest — MerdiVersa</h1>
+</header>
+
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="Rechercher une image (ex: cat, anime girl)...">
+  <button onclick="searchImages()">Rechercher</button>
+</div>
+
+<div id="gallery" class="gallery"></div>
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <span class="close" onclick="closeLightbox()">×</span>
+  <img src="" id="lightboxImg">
+</div><script src="pin.js"></script>
+</body>
+</html>

@@ -1,1 +1,37 @@
-&lt;!DOCTYPE html&gt; &lt;html lang=&quot;en&quot;&gt; &lt;head&gt; &lt;meta charset=&quot;UTF-8&quot;&gt; &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt; &lt;title&gt;Sample Page&lt;/title&gt; &lt;style&gt; .header { color: blue; font-size: 24px; } #main-content { padding: 20px; } &lt;/style&gt; &lt;/head&gt; &lt;body&gt; &lt;div id=&quot;main-content&quot; class=&quot;header&quot;&gt; &lt;h1&gt;Welcome to My Website&lt;/h1&gt; &lt;p&gt;This is a sample paragraph with some text.&lt;/p&gt; &lt;a href=&quot;https://example.com&quot;&gt;Visit Example&lt;/a&gt; &lt;/div&gt; &lt;script&gt; console.log(&quot;Hello World!&quot;); &lt;/script&gt; &lt;/body&gt; &lt;/html&gt;
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MerdiVersa — Chat IA</title>
+<link rel="stylesheet" href="chat.css">
+</head>
+<body>
+
+<header>
+  <h1>MerdiVersa</h1>
+  <nav class="nav">
+    <a href="merdiversa.html" class="primary">Accueil</a>
+    <a href="image.html">Images</a>
+    <a href="music.html">Musique</a>
+  </nav>
+</header>
+
+<section class="chat-container">
+  <div id="messages" class="messages">
+    <div class="msg ai">
+      Bonjour 👋 — je suis MerdiVersa, votre IA créée par Merdi Madimba à Kinshasa. Posez-moi une question pour commencer.
+    </div>
+  </div>
+  <div class="composer">
+    <textarea id="input" placeholder="Écrivez votre message ici..."></textarea>
+    <button id="send">Envoyer</button>
+    <button id="stop">STOP</button>
+  </div>
+</section>
+
+<footer>© 2025 MerdiVersa — Créé par Merdi Madimba</footer>
+
+<script src="chat.js"></script>
+</body>
+</html>
